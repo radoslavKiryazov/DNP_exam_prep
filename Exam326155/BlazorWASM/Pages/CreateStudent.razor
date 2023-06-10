@@ -1,0 +1,41 @@
+@page "/CreateStudent"
+@using global::Shared
+@using BlazorWASM.Data
+@inject IStudentService StudentService;
+<h3>CreateStudent</h3>
+
+<label> Name </label>
+<input type="text" @bind="studentName" @bind:event="oninput"> 
+<label> Programme </label>
+<input type="text" @bind="studentProgramme" @bind:event="oninput"> 
+<button @onclick="Create"> Create</button>
+<label> @message</label>
+
+@code {
+    private string studentName= "";
+    private string studentProgramme="";
+    private string message = "";
+
+
+    private async Task Create()
+    {
+        message = "";
+        Student student = new Student
+        {
+            Name = studentName,
+            Programme = studentProgramme
+        };
+        try
+        {
+            await StudentService.CreateAsync(student);
+            studentName = "";
+            studentProgramme = "";
+            message = "Student has been created!";
+        }
+        catch (Exception e)
+        {
+            Console.Write(e);
+            message = e.Message;
+        }
+    }
+}

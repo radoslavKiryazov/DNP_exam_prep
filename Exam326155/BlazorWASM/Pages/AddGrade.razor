@@ -1,0 +1,85 @@
+@page "/addgrade"
+@using global::Shared
+@using BlazorWASM.Data
+@inject IStudentService StudentService
+<h3>AddGrade</h3>
+
+    @if (Students == null)
+    {
+        <label>@message</label>
+    }
+    else if (!Students.Any())
+    {
+        <label>No students, go create some first :DD</label>
+    }
+    else
+    {
+        <label>Students:</label>
+        <select @bind="studentId">
+            <option>Choose</option>
+            @foreach (var s in Students)
+            {
+                <option value="@s.Id">@s.Name</option>
+            }
+        </select>
+        <label> Course </label>
+        <input type="text" @bind="@courseName">
+        <label>Grade:</label>
+        <select @bind="@grade">
+            <option>Choose</option>
+            <option value="-3">-3</option>
+            <option value="0">00</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+        </select>
+        <Button @onclick="Add"> Add Grade </Button>
+        <label>@message</label>
+    }
+@code {
+    private ICollection<Student>? Students;
+    private int studentId;
+    private int grade;
+    private string message = "";
+    private string courseName = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Students = await StudentService.GetAllStudents();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+    }
+
+    private async Task Add()
+    {
+        GradeInCourse gradeInCourse = new GradeInCourse
+        {
+            CourseCode = courseName,
+            Grade = grade,
+            student_Id = studentId
+        };
+        Console.WriteLine($"{courseName} COURSENAME");
+        Console.WriteLine($"{grade} grade");
+        Console.WriteLine($"{studentId} studentid");
+        try
+        {
+            await StudentService.AddGradeToStudent(gradeInCourse, 0);
+            message = "Grade Added";
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+    }
+
+}

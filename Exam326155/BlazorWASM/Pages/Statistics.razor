@@ -1,0 +1,88 @@
+@page "/Statistics"
+@using BlazorWASM.Data
+@using global::Shared
+@inject IGradeService GradeService;
+<h3>Statistics</h3>
+
+
+
+
+
+<input type="text" @bind="title" placeholder="COURSE">
+<br>
+<input type="checkbox" @bind="isChecked1">
+@if (isChecked1)
+{
+    <label> Total number of students with a passing grade (2 or above) in a course: @one </label>
+}
+else
+{
+    <label> Total number of students with a passing grade (2 or above) in a course:</label>
+}
+<br>
+<input type="checkbox" @bind="isChecked2">
+@if (isChecked2)
+{
+    <label> The average grade of all students in a course: @two </label>
+}
+else
+{
+    <label> The average grade of all students in a course:</label>
+}
+<br>
+<input type="checkbox" @bind="isChecked3">
+@if (isChecked3)
+{
+    <label> The average grade of students in a course who has a passing grade (2 or above): @three </label>
+}
+else
+{
+    <label> The average grade of students in a course who has a passing grade (2 or above) </label>
+}
+<br>
+<input type="checkbox" @bind="isChecked4">
+@if (isChecked4)
+{
+    <label> Total number of students in a course: @four</label>
+}
+else
+{
+    <label> Total number of students in a course</label>
+}
+<br>
+<input type="checkbox" @bind="isChecked5">
+@if (isChecked5)
+{
+    <label> The median grade of a course: @five </label>
+}
+else
+{
+    <label> The median grade of a course. </label>
+}
+<br>
+<button @onclick="Fetch"> Fetch</button>
+
+@code {
+        private string title = "";
+    private string one = "";
+    private string two = "";
+    private string three = "";
+    private string four = "";
+    private string five = "";
+
+        private bool isChecked1 = false;
+        private bool isChecked2 = false;
+        private bool isChecked3 = false;
+        private bool isChecked4 = false;
+        private bool isChecked5 = false;
+    
+    private async Task Fetch()
+    {
+        StatisticsOverviewDTO dto = await GradeService.GetCourseStatistics(title);
+        one = dto.TotalNumOfPassedStudents.ToString();
+        two = dto.AvgGradeOverall.ToString();
+        three = dto.AvgGradeOfPassed.ToString();
+        four = dto.TotalNumOfStudents.ToString();
+        five = dto.MedianGrade.ToString();
+    }
+}
