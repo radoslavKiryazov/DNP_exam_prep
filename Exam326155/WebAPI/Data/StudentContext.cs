@@ -18,8 +18,11 @@ public class StudentContext : DbContext
     {
         
         //Student Table
-        modelBuilder.Entity<Student>().HasKey(student => student.Id);
-        
+        modelBuilder.Entity<Student>()
+            .HasMany(s => s.grades)
+            .WithOne(g => g.Student)
+            .HasForeignKey(g => g.student_Id);
+
         modelBuilder.Entity<Student>().Property(student => student.Name)
             .IsRequired()
             .HasMaxLength(25);
@@ -29,8 +32,11 @@ public class StudentContext : DbContext
 
         
         //Grades
-        modelBuilder.Entity<GradeInCourse>().HasKey(course => course.Id);
-        
+        modelBuilder.Entity<GradeInCourse>()
+            .HasOne(g => g.Student)
+            .WithMany(g => g.grades)
+            .HasForeignKey(g => g.student_Id);
+
         modelBuilder.Entity<GradeInCourse>().Property(course => course.CourseCode)
             .IsRequired()
             .HasMaxLength(4);

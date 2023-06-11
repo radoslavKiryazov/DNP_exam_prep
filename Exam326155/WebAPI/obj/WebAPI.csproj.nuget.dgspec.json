@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj": {
+    "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj",
+        "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\Radoslav\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Radoslav\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -57,14 +57,14 @@
         }
       }
     },
-    "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Radoslav\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Radoslav\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -79,8 +79,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj"
+              "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj"
               }
             }
           }

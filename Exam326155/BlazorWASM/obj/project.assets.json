@@ -1832,11 +1832,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\BlazorWASM\\BlazorWASM.csproj",
+      "projectUniqueName": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\BlazorWASM\\BlazorWASM.csproj",
       "projectName": "BlazorWASM",
-      "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\BlazorWASM\\BlazorWASM.csproj",
+      "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\BlazorWASM\\BlazorWASM.csproj",
       "packagesPath": "C:\\Users\\Radoslav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\BlazorWASM\\obj\\",
+      "outputPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\BlazorWASM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Radoslav\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1851,8 +1851,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP-Exam-2022\\Exam326155\\Shared\\Shared.csproj"
+            "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\Shared\\Shared.csproj"
             }
           }
         }

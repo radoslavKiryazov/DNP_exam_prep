@@ -21,7 +21,7 @@ public class StudentsController : ControllerBase
         try
         {
             Student temp = await _dataAccess.CreateStudentAsync(student);
-            return Created($"/students/{temp.Id}",temp);
+            return Created($"/students/{temp.student_id}",temp);
         }
         catch (Exception e)
         {
