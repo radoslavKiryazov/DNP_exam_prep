@@ -1,0 +1,90 @@
+@page "/AddImage"
+@using Blazor.Clients
+@using global::Shared
+@inject IImageClient ImageClient
+<h3>AddImage</h3>
+
+
+@if (titles == null)
+    {
+        <label>Loading...</label>
+    }
+    else if (!titles.Any())
+    {
+        <label>No titles found</label>
+    }
+    else{
+<label>Albums</label>
+    <select @bind="selectedAlbum">
+        <option>Choose</option>
+        @foreach (var t in titles)
+        {
+            <option value="@t">@t</option>
+        }
+    </select>
+    <br>
+    <label>Title:</label>
+    <input type="text" @bind="ImgTitle">
+    <br>
+    <label>Description:</label>
+    <input type="text" @bind="Description">
+    <br>
+    <label>URL:</label>
+    <input type="text" @bind="URL">
+    <br>
+    <label>topic:</label>
+    <input type="text" @bind="topic">
+    <br>
+    <button @onclick="addImage"> Create </button>
+    <br>
+    <label> @message </label>
+}
+
+@code {
+    private ICollection<string>? titles;
+    private string ImgTitle = "";
+    private string Description = "";
+    private string URL = "";
+    private string selectedAlbum = "";
+    private string topic = "";
+    private string message = "";
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            titles = await ImageClient.GetAlbumTitlesAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async Task addImage()
+    {
+        message = "";
+        Image temp = new Image
+        {
+            Album_title = selectedAlbum,
+            Description = Description,
+            Title = ImgTitle,
+            Topic = topic,
+            URI = URL
+        };
+        
+        try
+        {
+            await ImageClient.AddImageToAlbumAsync(temp);
+            message = $"Message with URL: {temp.URI} has been added to album {temp.Album_title}";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+        
+    }
+
+}

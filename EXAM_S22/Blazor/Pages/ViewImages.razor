@@ -1,0 +1,52 @@
+@page "/ViewImages"
+@using Blazor.Clients
+@using global::Shared
+@inject IDisplayClient DisplayClient
+<h3>ViewImages</h3>
+
+<label> Filter By: </label>
+<label> Creator </label>
+<input class="text" @bind="creator">
+<label> Topic </label>
+<input class="text" @bind="topic">
+<button @onclick="GetImages">Search</button>
+
+
+@if (_images == null)
+    {
+        <label>Use the text fields to filter the images</label>
+    }
+    else if (!_images.Any())
+    {
+        <label>No Images Found</label>
+    }
+    else
+    {
+        foreach (var img in _images)
+        {
+            <div class="card">
+                <label> IMAGE TITLE: @img.Title</label>
+                <label> IMAGE BODY</label>
+                <label> IMAGE DESCRIPTION: @img.Description</label>
+            </div>
+        }
+    }
+@code {
+    private ICollection<Image>? _images;
+    private string creator = " ";
+    private string topic = " ";
+
+
+    private async Task GetImages()
+    {
+        try
+        {
+            _images = await DisplayClient.GetImagesAsync(creator,topic);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    } 
+}
