@@ -1,0 +1,56 @@
+@page "/CreateChild"
+@using Blazor.Clients
+@using global::Shared
+@inject IChildService ChildService
+<h3>CreateChild</h3>
+
+<label> Name </label>
+<input type="text" @bind="_name">
+<br>
+<label> Age </label>
+
+<select @bind="age">
+    <option value="3"> 3 </option>
+    <option value="4"> 4 </option>
+    <option value="5"> 5 </option>
+    <option value="6"> 6 </option>
+</select>
+<br>
+<label> Gender </label>
+<select @bind="gender">
+    <option value="boy"> boy </option>
+    <option value="girl"> girl </option>
+</select>
+<br>
+<button @onclick="CreateAChild"> Create </button>
+<label> @message </label>
+
+@code {
+    private string _name = "";
+    private int age;
+    private string gender = "";
+    private string message = "";
+    
+    
+    
+    private async Task CreateAChild()
+    {
+        message = "";
+        try
+        {
+            var created = await ChildService.CreateChild(new Child
+            {
+                Age = age,
+                Gender = gender,
+                Name = _name
+            });
+            message = $"Child with the name {created.Name} has been created!";
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+@page "/ViewAllToys"
+@using global::Shared
+@using Blazor.Clients
+@inject IToyClient ToyClient
+<h3>ViewAllToys</h3>
+
+<label> Filter By: </label>
+<br>
+<label> Gender </label>
+<select @bind="gender">
+    <option value="boy"> boy </option>
+    <option value="girl"> girl </option>
+</select>
+<br>
+<label> IsFavourite? </label>
+<select @bind="isFavourite">
+    <option value="true"> Yes </option>
+    <option value="false"> No </option>
+</select>
+<button @onclick="LoadToys"> Filter </button>
+
+
+@if (_toys == null)
+    {
+        <label>Loading...</label>
+    }
+    else if (!_toys.Any())
+    {
+        <label>No Toys Found</label>
+    }
+    else{
+        @foreach (var t in _toys)
+        {
+            <div class="card">
+                <label> Name Of Toy: @t.Name </label>
+                <label> Color of Toy: @t.Color</label>
+                <label> Toy Condition: @t.Condition </label>
+                <label> Owned By: @t.child.Name</label>
+                <label> is it a Favourite?: @t.IsFavourite</label>
+                <button class="alert-danger" @onclick="() => DeleteToy(t.Name)"> Delete Toy </button>
+            </div>
+        }
+        <br>
+        <label> @message </label>
+    }
+
+@code {
+
+    private ICollection<Toy>? _toys;
+    private string? isFavourite ="";
+    private string gender = "";
+    private string message = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _toys = await ToyClient.GetAllToys(null, "");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async Task DeleteToy(string toyName)
+    {
+        message = "";
+        try
+        {
+            await ToyClient.DeleteToy(toyName);
+            await OnInitializedAsync();
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+    }
+
+    private async Task LoadToys()
+    {
+        try
+        {
+            if (!string.IsNullOrEmpty(isFavourite)){
+                _toys = await ToyClient.GetAllToys(Boolean.Parse(isFavourite), gender);
+            }
+            else {
+                _toys = await ToyClient.GetAllToys(null, gender);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = e.Message;
+        }
+    }
+
+}
+}

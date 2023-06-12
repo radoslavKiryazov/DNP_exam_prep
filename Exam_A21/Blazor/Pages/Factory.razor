@@ -1,0 +1,90 @@
+@page "/Factory"
+@using Blazor.Clients
+@using global::Shared
+@inject IChildService ChildService
+@inject IToyClient ToyClient
+<h3>CreateAToy</h3>
+
+@if (names == null)
+    {
+        <label>Loading...</label>
+    }
+    else if (!names.Any())
+    {
+        <label>No children found</label>
+    }
+    else
+    {
+        <label>Children</label>
+        <select @bind="selectedChild">
+            <option>Choose</option>
+            @foreach (var n in names)
+            {
+                <option value="@n">@n</option>
+            }
+        </select>
+        <br>
+        <label> Toy Name</label>
+        <Input type="text" @bind="toyName">
+        <br>
+        <label> Toy Color</label>
+        <Input type="text" @bind="toyColor">
+        <br>
+        <label> Toy Condition </label>
+        <Input type="text" @bind="toyCondition">
+        
+        <label>Toy Status</label>
+        <select @bind="isFavourite">
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+        
+        <button @onclick="CreateToy">Create Toy</button>
+        <label>@message</label>
+    }
+
+@code {
+    private ICollection<string> names;
+    private string selectedChild = "";
+    private string toyColor = "";
+    private string toyCondition = "";
+    private string toyName = "";
+    private string isFavourite;
+    private string message = "";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            names = await ChildService.GetAllChildren();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async Task CreateToy()
+    {
+        try
+        {
+            await ToyClient.CreateToy(new Toy
+            {
+                Color = toyColor,
+                Condition = toyCondition,
+                //IsFavourite = isFavourite,
+                Name = toyName
+            }, selectedChild);
+            message = "Toy Created Successfully!";
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    } 
+
+}
