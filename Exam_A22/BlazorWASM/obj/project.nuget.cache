@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TgeQLjRHbqRj+cTaZiRQ2S1aeDOSseCe860rCNGEYphGGMjI/M62fhyOz4DqbdSsbuM3t4v1wb9KUqbBX7knZA==",
+  "dgSpecHash": "FRR4D0dSsfJ9/mPCydIwJAejWj9w+LMigwy611iTT9mssKUXeIEH7kde5NIdtoGrg/vcZED4PsVRvBtcXey28A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\BlazorWASM\\BlazorWASM.csproj",
+  "projectFilePath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam_A22\\BlazorWASM\\BlazorWASM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Radoslav\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.5\\microsoft.aspnetcore.authorization.7.0.5.nupkg.sha512",
     "C:\\Users\\Radoslav\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.5\\microsoft.aspnetcore.components.7.0.5.nupkg.sha512",

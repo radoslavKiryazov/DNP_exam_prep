@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JEpQ40jjCLHX2qIR+2aFrMqXcsgO1x6qHzVXbxrFtFkJTIdOy/FaLSsfpNaQ1Ywmi2GGTAIRGrhCehaRCKjkOQ==",
+  "dgSpecHash": "QRWV+7Hs3TS0KqqygjWiwsVmgL/+Psp+O19QGU9GHC5r2ExMZMn8DK2Q/Tuj8xr7CR9a5VRsm6p0WW/w9hTIDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam326155\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\Radoslav\\Documents\\GitHub\\DNP_exam_prep\\Exam_A22\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Radoslav\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Radoslav\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
